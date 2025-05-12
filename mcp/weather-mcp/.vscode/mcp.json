@@ -1,0 +1,11 @@
+{
+    "servers": {
+        "weather": {
+            "type": "stdio",
+            "command": "node",
+            "args": [
+                "dev/github/gen-ai/mcp/weather-mcp/build/index.js"
+            ]
+        }
+    }
+}
