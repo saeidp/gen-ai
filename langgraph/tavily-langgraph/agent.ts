@@ -1,13 +1,16 @@
 // agent.ts
 
-// IMPORTANT - Add your API keys here. Be careful not to publish them.
-process.env.TAVILY_API_KEY = "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";
-
 import { ChatBedrockConverse } from "@langchain/aws";
 import { TavilySearch } from "@langchain/tavily";
 import { MemorySaver } from "@langchain/langgraph";
 import { HumanMessage } from "@langchain/core/messages";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
+
+import dotenv from "dotenv";
+dotenv.config();
+
+// IMPORTANT - Add your API keys here. Be careful not to publish them.
+const tavilyKey = process.env.TAVILY_API_KEY;
 
 // Define the tools for the agent to use
 const agentTools = [new TavilySearch({ maxResults: 3 })];
