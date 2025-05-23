@@ -1,0 +1,19 @@
+{
+  "servers": {
+    "my-mcp-server-e63b92aa": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["development/experiment/mcp/simple-mcp/server.js"]
+    },
+    "aashari/mcp-server-atlassian-bitbucket": {
+      "command": "npx",
+      "args": ["-y", "@aashari/mcp-server-atlassian-bitbucket"],
+      "env": {
+        "ATLASSIAN_BITBUCKET_USERNAME": "saeid-pahlevan",
+        "ATLASSIAN_BITBUCKET_APP_PASSWORD": "PyasT7NjTt3pNSeRXwDt"
+      }
+    }
+  }
+}
+
+// ------------------------------------------------------
