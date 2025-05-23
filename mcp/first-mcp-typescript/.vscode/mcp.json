@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "mcp-server": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["dev/spike/mcp/first-mcp-typescript/build/index.js"]
+    }
+  }
+}
