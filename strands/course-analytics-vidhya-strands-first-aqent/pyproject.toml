@@ -1,0 +1,17 @@
+[project]
+name = "course-analytics-vidhya-strands-first-aqent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp-server-git>=2025.7.1",
+    "strands-agents[a2a,anthropic]>=1.7.1",
+    "strands-agents-builder>=0.1.9",
+    "strands-agents-tools[a2a-client]>=0.2.6",
+    "mcp[cli]>=1.13.1",
+    "fastapi>=0.116.1",
+    "matplotlib>=3.10.6",
+    "langfuse>=3.3.4",
+    "ragas>=0.3.2",
+]
