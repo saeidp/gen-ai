@@ -1,0 +1,12 @@
+[project]
+name = "0-raj-agentcore"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "bedrock-agentcore>=1.0.3",
+    "bedrock-agentcore-starter-toolkit>=0.1.26",
+    "strands-agents>=1.13.0",
+    "strands-agents-tools>=0.2.12",
+]

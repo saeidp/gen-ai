@@ -1,0 +1,82 @@
+default_agent: first_agentcore
+agents:
+  first_agent_core:
+    name: first_agent_core
+    entrypoint: /home/saeid/dev/spike/agentcore/0-raj-agentcore/agent-core.py
+    platform: linux/amd64
+    container_runtime: docker
+    source_path: /home/saeid/dev/spike/agentcore/0-raj-agentcore
+    aws:
+      execution_role: null
+      execution_role_auto_create: true
+      account: '381491838394'
+      region: ap-southeast-2
+      ecr_repository: null
+      ecr_auto_create: true
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: null
+      agent_arn: null
+      agent_session_id: null
+    codebuild:
+      project_name: null
+      execution_role: null
+      source_bucket: null
+    memory:
+      mode: STM_AND_LTM
+      memory_id: null
+      memory_arn: null
+      memory_name: first_agent_core_memory
+      event_expiry_days: 30
+      first_invoke_memory_check_done: false
+      was_created_by_toolkit: false
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
+  first_agentcore:
+    name: first_agentcore
+    entrypoint: /home/saeid/dev/spike/agentcore/0-raj-agentcore/agent-core.py
+    platform: linux/amd64
+    container_runtime: docker
+    source_path: /home/saeid/dev/spike/agentcore/0-raj-agentcore
+    aws:
+      execution_role: null
+      execution_role_auto_create: true
+      account: '381491838394'
+      region: ap-southeast-2
+      ecr_repository: null
+      ecr_auto_create: true
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: null
+      agent_arn: null
+      agent_session_id: 31b55c1f-d414-4396-9eab-f21c4f813734
+    codebuild:
+      project_name: null
+      execution_role: null
+      source_bucket: null
+    memory:
+      mode: STM_AND_LTM
+      memory_id: MyAgentMemory-IMCEhMB18K
+      memory_arn: null
+      memory_name: first_agentcore_memory
+      event_expiry_days: 30
+      first_invoke_memory_check_done: true
+      was_created_by_toolkit: false
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration:
+      workload_name: workload-5f675c60
+      userId: null
