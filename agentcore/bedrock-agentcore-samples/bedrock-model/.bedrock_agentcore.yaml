@@ -1,0 +1,31 @@
+default_agent: strands_claude
+agents:
+  strands_claude:
+    name: strands_claude
+    entrypoint: /home/saeid/dev/github/gen-ai/agentcore/bedrock-agentcore-samples/bedrock-model/strands_claude.py
+    platform: linux/arm64
+    container_runtime: docker
+    aws:
+      execution_role: arn:aws:iam::381491838394:role/AmazonBedrockAgentCoreSDKRuntime-ap-southeast-2-46ebe432b7
+      execution_role_auto_create: false
+      account: '381491838394'
+      region: ap-southeast-2
+      ecr_repository: 381491838394.dkr.ecr.ap-southeast-2.amazonaws.com/bedrock-agentcore-strands_claude
+      ecr_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: strands_claude-Pm6cPM9dCj
+      agent_arn: arn:aws:bedrock-agentcore:ap-southeast-2:381491838394:runtime/strands_claude-Pm6cPM9dCj
+      agent_session_id: 2f6b3af1-96f1-4baa-947b-7e369b36653d
+    codebuild:
+      project_name: bedrock-agentcore-strands_claude-builder
+      execution_role: arn:aws:iam::381491838394:role/AmazonBedrockAgentCoreSDKCodeBuild-ap-southeast-2-46ebe432b7
+      source_bucket: bedrock-agentcore-codebuild-sources-381491838394-ap-southeast-2
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
