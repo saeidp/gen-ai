@@ -1,12 +1,12 @@
 import asyncio
 import sys
+import os
 import logging
 import boto3
 from boto3.session import Session
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 from streamable_http_sigv4 import streamablehttp_client_with_sigv4
-
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -115,7 +115,7 @@ async def main():
 
     try:
         async with create_streamable_http_transport_sigv4(
-            mcp_url=mcp_url, service_name="bedrock-agentcore", region=region
+                mcp_url=mcp_url, service_name="bedrock-agentcore", region=region
         ) as (
             read_stream,
             write_stream,
@@ -132,16 +132,39 @@ async def main():
                 print("\n📋 Available MCP Tools:")
                 print("=" * 50)
                 for tool in tool_result.tools:
-                    print(f"🔧 {tool.name}")
-                    print(f"   Description: {tool.description}")
-                    if hasattr(tool, "inputSchema") and tool.inputSchema:
-                        properties = tool.inputSchema.get("properties", {})
-                        if properties:
-                            print(f"   Parameters: {list(properties.keys())}")
-                    print()
+                    print(f"🔧 {tool.name}: {tool.description}")
 
-                print(f"✅ Successfully connected to MCP server!")
-                print(f"Found {len(tool_result.tools)} tools available.")
+                print("\n🧪 Testing MCP Tools:")
+                print("=" * 50)
+
+                try:
+                    print("\n➕ Testing add_numbers(5, 3)...")
+                    add_result = await session.call_tool(
+                        name="add_numbers", arguments={"a": 5, "b": 3}
+                    )
+                    print(f"   Result: {add_result.content[0].text}")
+                except Exception as e:
+                    print(f"   Error: {e}")
+
+                try:
+                    print("\n✖️  Testing multiply_numbers(4, 7)...")
+                    multiply_result = await session.call_tool(
+                        name="multiply_numbers", arguments={"a": 4, "b": 7}
+                    )
+                    print(f"   Result: {multiply_result.content[0].text}")
+                except Exception as e:
+                    print(f"   Error: {e}")
+
+                try:
+                    print("\n👋 Testing greet_user('Alice')...")
+                    greet_result = await session.call_tool(
+                        name="greet_user", arguments={"name": "Alice"}
+                    )
+                    print(f"   Result: {greet_result.content[0].text}")
+                except Exception as e:
+                    print(f"   Error: {e}")
+
+                print("\n✅ MCP tool testing completed!")
 
     except Exception as e:
         print(f"❌ Error connecting to MCP server: {e}")
