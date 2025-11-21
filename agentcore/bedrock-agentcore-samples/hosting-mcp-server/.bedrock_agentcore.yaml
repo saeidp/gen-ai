@@ -1,0 +1,31 @@
+default_agent: mcp_server_iam
+agents:
+  mcp_server_iam:
+    name: mcp_server_iam
+    entrypoint: /home/saeid/dev/github/gen-ai/agentcore/bedrock-agentcore-samples/hosting-mcp-server/mcp_server.py
+    platform: linux/arm64
+    container_runtime: docker
+    aws:
+      execution_role: arn:aws:iam::381491838394:role/AmazonBedrockAgentCoreSDKRuntime-ap-southeast-2-22e9392f39
+      execution_role_auto_create: false
+      account: '381491838394'
+      region: ap-southeast-2
+      ecr_repository: 381491838394.dkr.ecr.ap-southeast-2.amazonaws.com/bedrock-agentcore-mcp_server_iam
+      ecr_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+      protocol_configuration:
+        server_protocol: MCP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: mcp_server_iam-BH1RwGAovj
+      agent_arn: arn:aws:bedrock-agentcore:ap-southeast-2:381491838394:runtime/mcp_server_iam-BH1RwGAovj
+      agent_session_id: null
+    codebuild:
+      project_name: bedrock-agentcore-mcp_server_iam-builder
+      execution_role: arn:aws:iam::381491838394:role/AmazonBedrockAgentCoreSDKCodeBuild-ap-southeast-2-22e9392f39
+      source_bucket: bedrock-agentcore-codebuild-sources-381491838394-ap-southeast-2
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
