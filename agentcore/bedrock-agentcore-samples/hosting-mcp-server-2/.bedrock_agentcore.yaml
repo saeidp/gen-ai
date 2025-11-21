@@ -1,0 +1,35 @@
+default_agent: mcp_server_agentcore
+agents:
+  mcp_server_agentcore:
+    name: mcp_server_agentcore
+    entrypoint: /home/saeid/dev/github/gen-ai/agentcore/bedrock-agentcore-samples/hosting-mcp-server-2/mcp_server.py
+    platform: linux/arm64
+    container_runtime: docker
+    aws:
+      execution_role: arn:aws:iam::381491838394:role/AmazonBedrockAgentCoreSDKRuntime-ap-southeast-2-7f3ae149b4
+      execution_role_auto_create: false
+      account: '381491838394'
+      region: ap-southeast-2
+      ecr_repository: 381491838394.dkr.ecr.ap-southeast-2.amazonaws.com/bedrock-agentcore-mcp_server_agentcore
+      ecr_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+      protocol_configuration:
+        server_protocol: MCP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: mcp_server_agentcore-Lj3QYO7TMP
+      agent_arn: arn:aws:bedrock-agentcore:ap-southeast-2:381491838394:runtime/mcp_server_agentcore-Lj3QYO7TMP
+      agent_session_id: null
+    codebuild:
+      project_name: bedrock-agentcore-mcp_server_agentcore-builder
+      execution_role: arn:aws:iam::381491838394:role/AmazonBedrockAgentCoreSDKCodeBuild-ap-southeast-2-7f3ae149b4
+      source_bucket: bedrock-agentcore-codebuild-sources-381491838394-ap-southeast-2
+    authorizer_configuration:
+      customJWTAuthorizer:
+        allowedClients:
+        - 2n4iv4pig4embpact494bg3m0a
+        discoveryUrl: https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_ag1bQ4x1v/.well-known/openid-configuration
+    request_header_configuration: null
+    oauth_configuration: null
