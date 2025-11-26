@@ -1,0 +1,4 @@
+https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/02-understanding-runtime-context/understanding_runtime_context.ipynb
+
+You may encounter build error and the fix is as follows
+CodeBuild was failing during uv pip install . because setuptools couldn’t auto-discover the package in the flat layout: it saw multiple top-level modules and aborted with “Multiple top-level modules discovered”. Adding [tool.setuptools] py-modules = ["strands_claude_context"] in pyproject.toml explicitly told it what to include, so the build succeeded and the agent deployed.
