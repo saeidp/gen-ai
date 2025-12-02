@@ -1,0 +1,14 @@
+[project]
+name = "gateway-search-tools"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "strands-agents",
+    "strands-agents-tools",
+    "bedrock-agentcore",
+    "bedrock-agentcore-starter-toolkit",
+    "botocore",
+    "boto3"
+]
