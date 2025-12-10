@@ -23,8 +23,8 @@ if __name__ == "__main__":
     app.run()
 
 
-#  uv run 1-agent_with_starter_kit.py
-#  Then send a POST request to http://localhost:8000/invoke with JSON body {"prompt": "Your message here"}
+#  uv run 1-test_agentcore_local.py
+#  Then send a POST request to http://localhost:8000/invokations with JSON body {"prompt": "Your message here"}
 
 #  Test Locally 
 #  Open another terminal and use curl to test:
