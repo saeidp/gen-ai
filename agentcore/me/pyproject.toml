@@ -17,3 +17,8 @@ py-modules = [
     "strands_claude_context"
 ]
 
+[tool.uv.workspace]
+members = [
+    "custome-agent-no-agentcore",
+]
+
